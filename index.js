@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongodb = require("mongodb");
-const URL = "mongodb://localhost:27017";
+const URL = "mongodb+srv://tejas:Tejas11@cluster0.vpuuy.mongodb.net?retryWrites=true&w=majority";
 const DB = "bms";
 const bcrypt = require("bcryptjs");
 const jwt =require("jsonwebtoken");
