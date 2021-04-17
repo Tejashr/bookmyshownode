@@ -11,6 +11,8 @@ const jwt =require("jsonwebtoken");
 app.use(cors())
 app.use(express.json());
 
+
+
 app.post("/register", async function (req, res) {
     try {
         let connection = await mongodb.connect(URL);
