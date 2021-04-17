@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongodb = require("mongodb");
-const URL = "mongodb+srv://tejas:Tejas11@cluster0.vpuuy.mongodb.net?retryWrites=true&w=majority";
+const URL = process.env.DB;
 const DB = "bms";
 const bcrypt = require("bcryptjs");
 const jwt =require("jsonwebtoken");
@@ -54,7 +54,7 @@ app.post("/login", async function (req, res) {
             let isPassword = await bcrypt.compare(req.body.password, user.password);
             if (isPassword) {
 
-                let token=jwt.sign({_id:user._id},"qwertyuiopasdfghjklzxcvbnm")
+                let token=jwt.sign({_id:user._id},process.env.secret)
 
                 res.json({
                     message: "allow",
@@ -118,7 +118,7 @@ app.post("/alogin", async function (req, res) {
             let isPassword = await bcrypt.compare(req.body.password, user.password);
             if (isPassword) {
 
-                let token=jwt.sign({_id:user._id},"qwertyuiopasdfghjklzxcvbnm")
+                let token=jwt.sign({_id:user._id},process.env.secret)
 
                 res.json({
                     message: "allow",
